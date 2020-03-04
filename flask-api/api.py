@@ -1,8 +1,8 @@
 import time
 from flask import Flask
+from routes.patients import patients_routes
 
 app = Flask(__name__)
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+
+app.register_blueprint(patients_routes, url_prefix='/api/patients')

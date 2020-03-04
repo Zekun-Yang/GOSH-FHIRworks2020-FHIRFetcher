@@ -11,5 +11,5 @@ def get_access_token():
     if res.status_code == 200:
         response_json = res.json()
         return response_json.get('access_token', None)
-def make_auth_header(access_token):
-    return {'Authorization': 'Bearer {}'.format(access_token), 'Content-Type':'application/fhir+json'}
+def make_auth_header():
+    return {'Authorization': 'Bearer {}'.format(get_access_token()), 'Content-Type':'application/fhir+json'}
