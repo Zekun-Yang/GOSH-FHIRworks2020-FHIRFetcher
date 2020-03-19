@@ -13,10 +13,10 @@ function App() {
   //   });
   // }, []);
 
-  useEffect(() => {
-    axios.get('/time').then(response => setCurrentTime(response.data.time))
+  // useEffect(() => {
+  //   axios.get('/time').then(response => setCurrentTime(response.data.time))
 
-  })
+  // })
 
 
 
