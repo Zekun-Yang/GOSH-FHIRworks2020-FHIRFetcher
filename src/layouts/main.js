@@ -2,6 +2,8 @@ import React from "react"
 import { Grid, Paper, Typography, Link, Button, Card, CardContent, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 import Choices from '../components/Choices'
 import DisplayPatients from '../components/displayPatients'
+import DisplayObservations from '../components/displayObservations'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -14,11 +16,21 @@ class Main extends React.Component {
         super(props)
         this.state = {
             isSubmit: false,
-            display: { value: [] }
+            display: null,
 
         }
         this.setDisplay = this.setDisplay.bind(this)
+        this.setDataTye = this.setDataTye.bind(this)
+        this.setSubmit = this.setSubmit.bind(this)
 
+    }
+
+    setSubmit(){
+        this.setState(
+            {
+                isSubmit:true
+            }
+        )
     }
 
 
@@ -27,7 +39,15 @@ class Main extends React.Component {
         this.setState(
             {
                 display: data,
-                isSubmit: true
+            }
+        )
+    }
+
+    setDataTye(type) {
+        this.setState(
+            {
+                dataType: type,
+                isSubmit: false
             }
         )
     }
@@ -35,10 +55,10 @@ class Main extends React.Component {
 
 
     render() {
-        console.log(this.state.display.value)
-
-        if (this.state.isSubmit) {
-            console.log(this.state.display)
+        console.log(this.state.isSubmit)
+        console.log(this.state.display)
+        if (this.state.isSubmit && this.state.display === null){
+            console.log("HJHJ")
         }
 
         const paperStyles_Choices = {
@@ -64,14 +84,18 @@ class Main extends React.Component {
                 <Grid container spacing={3}>
                     <Grid item xs={3}>
                         <Paper style={paperStyles_Choices}>
-                            <Choices setDisplay={this.setDisplay} />
-                            <br />
-
+                            <Choices setDisplay={this.setDisplay} setDataTye={this.setDataTye} setSubmit={this.setSubmit}/>
                         </Paper>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={9} >
 
-                        {this.state.isSubmit && <DisplayPatients display={this.state.display}></DisplayPatients>} 
+                        {
+                            this.state.isSubmit && this.state.display === null && <CircularProgress/>
+                        }
+
+                        {this.state.isSubmit && this.state.display && this.state.dataType === "Patients" && <DisplayPatients display={this.state.display} />}
+
+                        {this.state.isSubmit && this.state.display && this.state.dataType === "Observations" && <DisplayObservations display={this.state.display} />}
 
                     </Grid>
                 </Grid>

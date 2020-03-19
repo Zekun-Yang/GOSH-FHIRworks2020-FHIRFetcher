@@ -7,4 +7,4 @@ app = Flask(__name__)
 
 
 app.register_blueprint(patients_routes, url_prefix='/api/patients')
-app.register_blueprint(observation_routes, url_prefix='/api/observation')
+app.register_blueprint(observation_routes, url_prefix='/api/observations')

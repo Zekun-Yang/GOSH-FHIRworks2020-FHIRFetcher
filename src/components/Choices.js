@@ -23,20 +23,26 @@ class Choices extends React.Component {
     handleSelectType(e) {
         this.setState(
             {
-                selectType: e
+                selectType: e,
+                
             }
         )
+       
     }
 
     handleDataType(e) {
         this.setState(
             {
-                dataType: e
+                dataType: e, 
             }
         )
+        
+        this.props.setDataTye(e.value)
     }
 
     handleSubmit() {
+        this.props.setDisplay(null)
+        this.props.setSubmit()
         if (this.state.dataType.value === "Patients" && this.state.selectType.value === "All") {
             axios.get('api/patients/').then(
                 res => (
@@ -48,6 +54,23 @@ class Choices extends React.Component {
 
         if (this.state.dataType.value === "Patients" && this.state.selectType.value === "Random") {
             axios.get('api/patients/' + this.state.numOfInstance).then(
+                res => (
+                    this.props.setDisplay(res.data)
+                )
+            )
+
+        }
+
+        if (this.state.dataType.value === "Observations" && this.state.selectType.value === "All") {
+            axios.get('api/observations/').then(
+                res => (
+                    this.props.setDisplay(res.data)
+                )
+            )
+        }
+
+        if (this.state.dataType.value === "Observations" && this.state.selectType.value === "Random") {
+            axios.get('api/observations/' + this.state.numOfInstance).then(
                 res => (
                     this.props.setDisplay(res.data)
                 )
@@ -76,12 +99,12 @@ class Choices extends React.Component {
                 <Typography variant="h6" display="block" color="textPrimary" align="left">
                     Data Type
                 </Typography>
-                <Select defaultValue={this.state.dataType} options={[{ value: "Patients", label: "Patients" }, { value: "Observations", label: "Observations" }]} label="Single select" onChange={this.handleDataType} />
+                <Select options={[{ value: "Patients", label: "Patients" }, { value: "Observations", label: "Observations" }]} label="Single select" onChange={this.handleDataType} />
                 <br />
                 <Typography variant="h6" display="block" color="textPrimary" align="left">
                     Select Type
                 </Typography>
-                <Select defaultValue={this.state.selectType} options={[{ value: "All", label: "All" }, { value: "Random", label: "Random" }, { value: "Specific Info", label: "Specific Info" }]} label="Single select" onChange={this.handleSelectType} />
+                <Select options={[{ value: "All", label: "All" }, { value: "Random", label: "Random" }, { value: "Specific Info", label: "Specific Info" }]} label="Single select" onChange={this.handleSelectType} />
                 <br />
 
                 {
