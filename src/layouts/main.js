@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Paper, Typography, Link, Button, Card, CardContent, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Grid, Paper, Box,Typography, Link, Button, Card, CardContent, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Container } from '@material-ui/core';
 import Choices from '../components/Choices'
 import DisplayPatients from '../components/displayPatients'
 import DisplayObservations from '../components/displayObservations'
@@ -55,12 +55,6 @@ class Main extends React.Component {
 
 
     render() {
-        console.log(this.state.isSubmit)
-        console.log(this.state.display)
-        if (this.state.isSubmit && this.state.display === null){
-            console.log("HJHJ")
-        }
-
         const paperStyles_Choices = {
             margin: "20px",
             padding: "20px",
@@ -72,12 +66,16 @@ class Main extends React.Component {
             padding: "20px",
             borderRadius: 10,
         }
-
-        const cardStyles = {
-            minWidth: 275,
-            backgroundColor: "rgb(241, 241, 241)",
-            padding: "10px"
+        const stylesLoading = {
+            display: 'flex',
+            justifyConten: "center",
+            alignItems: 'center',
+            height: '100vh',
         }
+
+
+
+        
 
         return (
             <Paper style={paperStyles}>
@@ -90,7 +88,7 @@ class Main extends React.Component {
                     <Grid item xs={9} >
 
                         {
-                            this.state.isSubmit && this.state.display === null && <CircularProgress/>
+                            this.state.isSubmit && this.state.display === null && <div style={stylesLoading}> <Grid container justify="center"> <Grid item><CircularProgress/> </Grid> </Grid>  </div>
                         }
 
                         {this.state.isSubmit && this.state.display && this.state.dataType === "Patients" && <DisplayPatients display={this.state.display} />}

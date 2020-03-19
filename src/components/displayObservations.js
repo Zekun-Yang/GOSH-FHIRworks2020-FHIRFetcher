@@ -15,23 +15,10 @@ class DisplayObservations extends React.Component {
     }
 
     render() {
-        console.log(this.props.display.value)
-
-        const paperStyles_Choices = {
-            margin: "20px",
-            padding: "20px",
-            borderRadius: 5,
-            backgroundColor: "rgb(241, 241, 241)"
-        }
-        const paperStyles = {
-            margin: "30px",
-            padding: "20px",
-            borderRadius: 10,
-        }
 
         const cardStyles = {
             minWidth: 275,
-            backgroundColor: "rgb(241, 241, 241)",
+            
 
         }
         return (

@@ -13,21 +13,9 @@ class DisplayPatients extends React.Component {
 
     render() {
 
-        const paperStyles_Choices = {
-            margin: "20px",
-            padding: "20px",
-            borderRadius: 5,
-            backgroundColor: "rgb(241, 241, 241)"
-        }
-        const paperStyles = {
-            margin: "30px",
-            padding: "20px",
-            borderRadius: 10,
-        }
 
         const cardStyles = {
             minWidth: 275,
-            backgroundColor: "rgb(241, 241, 241)",
             padding: "10px"
         }
         return (
@@ -36,7 +24,7 @@ class DisplayPatients extends React.Component {
                     this.props.display.value.map(
                         (item) => (
                             <Grid item xs={6} key={item.id}>
-                                <Card style={cardStyles}>
+                                <Card style={cardStyles} variant="outlined">
                                     <CardContent>
                                         <List>
                                             <ListItem>
