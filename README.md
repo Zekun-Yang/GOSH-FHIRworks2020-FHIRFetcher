@@ -12,6 +12,11 @@
 * Python3: A Python3 intepreter to run the Flask backend
 * npm: A package and project manager for Node.js applications.
 
+# Note:
+    For security reasons, the credentials of access to the GOSH Azure implementation has been removed.
+    Make sure you add credentials to the file which locates at **./flask-api/utils/authentication.py** 
+    before runnning the code.
+
 # To run the project:
 ### First Start front end:
     1. open a terminal and `cd` into the root directory of the project 
@@ -23,5 +28,6 @@
     3. type `pip install -r requirements.txt` to install all dependencies
     4. type `flask run` ro start the back end
 #### the web application is available at [localhost:300](http://localhost:3000/)
+
 
 
