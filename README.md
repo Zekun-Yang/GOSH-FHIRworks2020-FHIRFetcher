@@ -13,9 +13,9 @@
 * npm: A package and project manager for Node.js applications.
 
 # Note:
-    For security reasons, the credentials of access to the GOSH Azure implementation has been removed.
-    Make sure you add credentials to the file which locates at **./flask-api/utils/authentication.py** 
-    before runnning the code.
+For security reasons, the credentials of access to the GOSH Azure implementation has been removed.
+Make sure you add credentials to the file which locates at **./flask-api/utils/authentication.py** 
+before runnning the code.
 
 # To run the project:
 ### First Start front end:
