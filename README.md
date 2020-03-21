@@ -22,6 +22,6 @@
     2. type `source venv/bin/activate` 
     3. type `pip install -r requirements.txt` to install all dependencies
     4. type `flask run` ro start the back end
-    5. the web application is available at [localhost:300](http://localhost:3000/)
+#### the web application is available at [localhost:300](http://localhost:3000/)
 
 
