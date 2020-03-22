@@ -104,7 +104,7 @@ class Choices extends React.Component {
                 <Typography variant="h6" display="block" color="textPrimary" align="left">
                     Select Type
                 </Typography>
-                <Select options={[{ value: "All", label: "All" }, { value: "Random", label: "Random" }, { value: "Specific Info", label: "Specific Info" }]} label="Single select" onChange={this.handleSelectType} />
+                <Select options={[{ value: "All", label: "All" }, { value: "Random", label: "Random" }]} label="Single select" onChange={this.handleSelectType} />
                 <br />
 
                 {
